@@ -30,7 +30,6 @@ public class Serial {
     //   Microcontroler  --->   Computer
     public static final String INPUT = "I";
     public static final String OUTPUT = "O";
-    public static final String SETPOINT = "S";
     
     private SerialPort serialPort;
     private InputStream inputStream;

@@ -53,10 +53,10 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
 
         panelGraph = new javax.swing.JPanel();
         buttonClear = new javax.swing.JButton();
-        labelTimeRange = new javax.swing.JLabel();
-        spinnerTimeRange = new javax.swing.JSpinner();
-        labelSampleSize = new javax.swing.JLabel();
-        spinnerSampleSize = new javax.swing.JSpinner();
+        labelHorizontalZoom = new javax.swing.JLabel();
+        spinnerHorizontalZoom = new javax.swing.JSpinner();
+        labelBufferSize = new javax.swing.JLabel();
+        spinnerBufferSize = new javax.swing.JSpinner();
         buttonSaveGraph = new javax.swing.JButton();
         panelTuner = new javax.swing.JPanel();
         labelKP = new javax.swing.JLabel();
@@ -93,12 +93,12 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
         panelPIDOutput = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("PID Tuning");
+        setTitle("PID Tuner");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImage(new ImageIcon(getClass().getResource("/inserts/icon.png")).getImage());
         setResizable(false);
 
-        panelGraph.setBorder(javax.swing.BorderFactory.createTitledBorder("Graph"));
+        panelGraph.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Graph", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         buttonClear.setText("CLEAR");
         buttonClear.addActionListener(new java.awt.event.ActionListener() {
@@ -107,25 +107,25 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
             }
         });
 
-        labelTimeRange.setText("Time Range");
+        labelHorizontalZoom.setText("Horizontal Zoom");
 
-        spinnerTimeRange.setOpaque(false);
-        spinnerTimeRange.setPreferredSize(new java.awt.Dimension(102, 20));
-        spinnerTimeRange.setValue(Chart.DEFAULT_RANGE);
-        spinnerTimeRange.addChangeListener(new javax.swing.event.ChangeListener() {
+        spinnerHorizontalZoom.setOpaque(false);
+        spinnerHorizontalZoom.setPreferredSize(new java.awt.Dimension(102, 20));
+        spinnerHorizontalZoom.setValue(Chart.DEFAULT_RANGE);
+        spinnerHorizontalZoom.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerTimeRangeStateChanged(evt);
+                spinnerHorizontalZoomStateChanged(evt);
             }
         });
 
-        labelSampleSize.setText("Sample Size");
+        labelBufferSize.setText("Buffer Size");
 
-        spinnerSampleSize.setOpaque(false);
-        spinnerSampleSize.setPreferredSize(new java.awt.Dimension(102, 20));
-        spinnerSampleSize.setValue(3000);
-        spinnerSampleSize.addChangeListener(new javax.swing.event.ChangeListener() {
+        spinnerBufferSize.setOpaque(false);
+        spinnerBufferSize.setPreferredSize(new java.awt.Dimension(102, 20));
+        spinnerBufferSize.setValue(3000);
+        spinnerBufferSize.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerSampleSizeStateChanged(evt);
+                spinnerBufferSizeStateChanged(evt);
             }
         });
 
@@ -145,13 +145,13 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
                 .addGroup(panelGraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(buttonClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelGraphLayout.createSequentialGroup()
-                        .addComponent(labelTimeRange)
+                        .addComponent(labelHorizontalZoom)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(spinnerTimeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(spinnerHorizontalZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelGraphLayout.createSequentialGroup()
-                        .addComponent(labelSampleSize)
+                        .addComponent(labelBufferSize)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(spinnerSampleSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(spinnerBufferSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(buttonSaveGraph, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -160,12 +160,12 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
             .addGroup(panelGraphLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTimeRange)
-                    .addComponent(spinnerTimeRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelHorizontalZoom)
+                    .addComponent(spinnerHorizontalZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelGraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSampleSize)
-                    .addComponent(spinnerSampleSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelBufferSize)
+                    .addComponent(spinnerBufferSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonClear)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -173,7 +173,7 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        panelTuner.setBorder(javax.swing.BorderFactory.createTitledBorder("Tuner"));
+        panelTuner.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tuner", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         labelKP.setText("KP (Proportional)");
         labelKP.setPreferredSize(new java.awt.Dimension(14, 14));
@@ -338,6 +338,7 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
         );
 
         panelPIDInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panelPIDInput.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
 
         javax.swing.GroupLayout panelPIDInputLayout = new javax.swing.GroupLayout(panelPIDInput);
         panelPIDInput.setLayout(panelPIDInputLayout);
@@ -434,6 +435,7 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
         );
 
         panelPIDOutput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panelPIDOutput.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
 
         javax.swing.GroupLayout panelPIDOutputLayout = new javax.swing.GroupLayout(panelPIDOutput);
         panelPIDOutput.setLayout(panelPIDOutputLayout);
@@ -624,24 +626,24 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
         }
     }//GEN-LAST:event_buttonSerialDisconnectActionPerformed
 
-    private void spinnerTimeRangeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerTimeRangeStateChanged
+    private void spinnerHorizontalZoomStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerHorizontalZoomStateChanged
         try {
-            int range = Integer.parseInt(spinnerTimeRange.getValue().toString());
+            int range = Integer.parseInt(spinnerHorizontalZoom.getValue().toString());
             chartInput.setFixedAutoRange(range);
             chartOutput.setFixedAutoRange(range);
         } catch (NullPointerException e) {
         }
-    }//GEN-LAST:event_spinnerTimeRangeStateChanged
+    }//GEN-LAST:event_spinnerHorizontalZoomStateChanged
 
-    private void spinnerSampleSizeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerSampleSizeStateChanged
+    private void spinnerBufferSizeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerBufferSizeStateChanged
         try {
-            int value = Integer.parseInt(spinnerSampleSize.getValue().toString());
+            int value = Integer.parseInt(spinnerBufferSize.getValue().toString());
 
             chartInput.setMaximumItemCount(value);
             chartOutput.setMaximumItemCount(value);
         } catch (NumberFormatException e) {
         }
-    }//GEN-LAST:event_spinnerSampleSizeStateChanged
+    }//GEN-LAST:event_spinnerBufferSizeStateChanged
 
     private void buttonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearActionPerformed
         chartInput.clearAll();
@@ -702,7 +704,7 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
             }
         });
         chartInput.initialize();
-                
+        
         //---- Chart OUTPUT ----
         chartOutput = new Chart(panelPIDOutput, "Output");
         chartOutput.addChart("Output");
@@ -724,9 +726,8 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
         switch (parameter) {
             case Serial.INPUT:
                 chartInput.addData("Input", new XYDataItem(chartInput.getXAxisValue() * X + X, value));
-                break;
-            case Serial.SETPOINT:
-                chartInput.addData("SetPoint", new XYDataItem(chartInput.getXAxisValue() * X + X, value));
+                float sp = Float.parseFloat(spinnerSetPoint.getValue().toString());
+                chartInput.addData("SetPoint", new XYDataItem(chartInput.getXAxisValue() * X + X, sp));
                 break;
             case Serial.OUTPUT:
                 chartOutput.addData("Output", new XYDataItem(chartOutput.getXAxisValue() * X * 2 + X, value));
@@ -750,14 +751,14 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
     private javax.swing.JLabel jLabel12;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelBaudRate;
+    private javax.swing.JLabel labelBufferSize;
+    private javax.swing.JLabel labelHorizontalZoom;
     private javax.swing.JLabel labelKD;
     private javax.swing.JLabel labelKI;
     private javax.swing.JLabel labelKP;
     private javax.swing.JLabel labelPort;
-    private javax.swing.JLabel labelSampleSize;
     private javax.swing.JLabel labelSetPoint;
     private javax.swing.JLabel labelStatus;
-    private javax.swing.JLabel labelTimeRange;
     private javax.swing.JLabel outputLabel;
     private javax.swing.JPanel panelGraph;
     private javax.swing.JPanel panelPIDInput;
@@ -766,12 +767,12 @@ public class PIDWindow extends javax.swing.JFrame implements Serial.DataListener
     private javax.swing.JPanel panelTuner;
     private javax.swing.JLabel serialStatus;
     private javax.swing.JLabel setPointLabel;
+    private javax.swing.JSpinner spinnerBufferSize;
+    private javax.swing.JSpinner spinnerHorizontalZoom;
     private javax.swing.JSpinner spinnerKD;
     private javax.swing.JSpinner spinnerKI;
     private javax.swing.JSpinner spinnerKP;
-    private javax.swing.JSpinner spinnerSampleSize;
     private javax.swing.JSpinner spinnerSetPoint;
-    private javax.swing.JSpinner spinnerTimeRange;
     private javax.swing.JTextField textSerialPort;
     // End of variables declaration//GEN-END:variables
 
