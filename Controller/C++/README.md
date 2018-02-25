@@ -2,7 +2,7 @@
 
 Esta biblioteca possui métodos que permitem controlar sistemas com plataformas que aceitam a linguagem de programação C++. Por exemplo a [Arduino IDE](https://www.arduino.cc/en/Main/Software).
 
-Caso necessite programar em linguagem C, seu caminho é [*este*](https://github.com/AsafeSilva/PID-Tuner-Controller/Controller/C).
+Caso necessite programar em linguagem C, seu caminho é [*este*](https://github.com/AsafeSilva/PID-Tuner-Controller/tree/master/Controller/C).
 
 
 ## "PID.h"
