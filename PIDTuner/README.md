@@ -129,7 +129,7 @@ void function(){
 
 Finalmente, o que é necessário fazer para abrir a interface?!
 
-Descompacte o arquivo [PIDTuner.zip](https://github.com/AsafeSilva/PID-Tuner-Controller/PIDTuner/PIDTuner.zip), abra o arquivo `PIDTuner.jar` e Bom Trabalho!
+Descompacte o arquivo [PIDTuner.zip](https://github.com/AsafeSilva/PID-Tuner-Controller/blob/master/PIDTuner/PIDTuner.zip), abra o arquivo `PIDTuner.jar` e Bom Trabalho!
 
 Caso seu computador não reconheça o arquivo *.jar*, tente instalar a [JRE](http://www.oracle.com/technetwork/pt/java/javase/downloads/jre8-downloads-2133155.html)
 
