@@ -35,6 +35,8 @@ A junção de todos esses termos e conceitos pode ser compreendida de forma gen�
 
 ## Referências
 
+Para explicações mais detalhadas, além de uma pesquisa geral no *google*, você pode dar uma lida nos seguintes links:
+
 Freitas,	Carlos.	**Controle	PID	em	sistemas	embarcados**.	Disponível	em
 <www.embarcados.com.br>. Acesso em 5 de Dezembro de 2016.
 
