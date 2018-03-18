@@ -35,10 +35,12 @@ A junção de todos esses termos e conceitos pode ser compreendida de forma gen�
 
 ## Referências
 
-Para explicações mais detalhadas, além de uma pesquisa geral no *google*, você pode dar uma lida nos seguintes links:
+**_Para explicações mais detalhadas, além de uma pesquisa geral no *google*, você pode dar uma lida nos seguintes links:_**
 
 Freitas,	Carlos.	**Controle	PID	em	sistemas	embarcados**.	Disponível	em
 <www.embarcados.com.br>. Acesso em 5 de Dezembro de 2016.
+
+Neves, Felipe. **Controlador PID digital: Uma modelagem prática para microcontroladores**. Disponível em <www.embarcados.com.br>. Acesso em 5 de Dezembro de 2016.
 
 MicroControlado. **Controle PID com aproximação Digital para utilização no PIC**. Disponível em <www.microcontrolado.com>. Acesso em 7 de Dezembro de 2016.
 
