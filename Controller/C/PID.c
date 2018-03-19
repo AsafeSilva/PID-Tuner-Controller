@@ -56,18 +56,18 @@ void PID_begin(PID *pid){
 
 float PID_compute(PID *pid, float error){
 
-	// Implementation of P
+	// Implementation of the Proportional part
 	pid->P = pid->KP * error;
 
-	// Implementation of I
+	// Implementation of the Integrative part
 	pid->I += (pid->KI * error / pid->frequency);
 	if (pid->I > pid->outMax) pid->I = pid->outMax;
 	else if (pid->I < pid->outMin) pid->I = pid->outMin;
 
-	// Implementation of D
+	// Implementation of the Derivative part
 	pid->D = pid->KD * (error - pid->lastError) * pid->frequency;
 
-	// Calculate output PID
+	// Calculates the PID output
 	float output = pid->P + pid->I + pid->D;
 	if (output > pid->outMax) output = pid->outMax;
 	else if (output < pid->outMin) output = pid->outMin;
