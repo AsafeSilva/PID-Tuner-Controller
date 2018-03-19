@@ -50,21 +50,21 @@ float PID::compute(){
 
 float PID::compute(float dTime){
 
-	// calculate error
+	// Calculates error
 	error = (setPoint - newInput);
 
-	// Implementation of P
+	// Implementation of the Proportional part
 	P = kP * error;
 
-	// Implementation of I
+	// Implementation of the Integrative part
 	I += kI * error * dTime;
 	if(I > outMax) I = outMax;
 	else if(I < outMax) I = outMin;
 
-	// Implementation of D
+	// Implementation of the Derivative part
 	D = kD * (error - lastError) / dTime;
 
-	// Calculate output PID
+	// Calculates the PID output
 	output = P + I + D;
 	if(output > outMax) output = outMax;
 	else if(output < outMax) output = outMin;
