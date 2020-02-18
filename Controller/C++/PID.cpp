@@ -1,7 +1,7 @@
 #include "PID.h"
 
 PID::PID(float _kP, float _kI, float _kD){
-    setParameters(_kP, _kI, _kD);
+    setGains(_kP, _kI, _kD);
     setSetPoint(0);
     setFrequency(1.0);
 
@@ -10,7 +10,7 @@ PID::PID(float _kP, float _kI, float _kD){
 }
 
 PID::PID(float _kP, float _kI, float _kD, float _outMin, float _outMax){
-    setParameters(_kP, _kI, _kD);
+    setGains(_kP, _kI, _kD);
     setFrequency(1.0);
 
     outMax = _outMax;
